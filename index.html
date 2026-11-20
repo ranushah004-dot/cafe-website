@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cafe Fit Out | Food, Coffee & Good Vibes</title>
+  <meta name="description" content="Explore The Cafe Fit Out — a cozy spot for coffee, Asian favourites, snacks and good vibes." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+    :root{--ink:#1e1c19;--cream:#f8f4ed;--orange:#c66b37;--muted:#746d64;--white:#fff;--line:#e7ded2}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(248,244,237,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;line-height:1.05}
+    .logo small{display:block;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-top:5px}
+    nav{display:flex;gap:26px;align-items:center;font-size:14px}
+    nav a:hover{color:var(--orange)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;padding:13px 22px;font-weight:700;cursor:pointer;transition:.2s;background:var(--orange);color:white}
+    .btn:hover{transform:translateY(-2px);filter:brightness(.95)}
+    .btn.dark{background:var(--ink)}
+    .hero{padding:54px 0 64px}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:44px}
+    .eyebrow{color:var(--orange);font-size:12px;letter-spacing:2.4px;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+    h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.15}
+    h1{font-size:clamp(42px,6vw,72px);letter-spacing:-1.5px;margin-bottom:20px}
+    h1 span{color:var(--orange);font-style:italic}
+    .hero p{max-width:490px;color:var(--muted);font-size:17px;margin-bottom:26px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-image{min-height:440px;border-radius:28px;overflow:hidden;position:relative;background:#d8b89c}
+    .hero-image img{width:100%;height:100%;min-height:440px;object-fit:cover;display:block}
+    .image-note{position:absolute;bottom:18px;left:18px;background:#fffdf8eF;padding:13px 17px;border-radius:16px;font-size:13px;font-weight:700}
+    .image-note span{display:block;color:var(--orange);font-size:11px;font-weight:500;margin-top:2px}
+    .strip{background:var(--ink);color:white;padding:17px 0;text-align:center;font-size:13px;letter-spacing:1.2px}
+    section{padding:76px 0}
+    .section-head{text-align:center;max-width:660px;margin:0 auto 34px}
+    .section-head h2{font-size:clamp(32px,4vw,46px);margin-bottom:12px}
+    .section-head p{color:var(--muted)}
+    .menu-tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+    .tab{border:1px solid var(--line);background:transparent;padding:10px 18px;border-radius:999px;cursor:pointer;font:600 13px 'DM Sans',sans-serif;color:var(--ink)}
+    .tab.active,.tab:hover{background:var(--ink);color:white;border-color:var(--ink)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .menu-card{background:white;border:1px solid #eee5da;border-radius:20px;overflow:hidden;box-shadow:0 6px 24px #241b1008}
+    .menu-card img{height:210px;width:100%;object-fit:cover;display:block}
+    .menu-info{padding:18px}
+    .menu-info h3{font-size:22px;margin-bottom:5px}
+    .menu-info p{font-size:13px;color:var(--muted);min-height:42px}
+    .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-weight:700}
+    .price{color:var(--orange)}
+    .tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#847a70;background:#f6f0e8;padding:6px 9px;border-radius:20px}
+    .about{background:#eee6da}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+    .about-img{border-radius:24px;overflow:hidden;height:390px}
+    .about-img img{width:100%;height:100%;object-fit:cover}
+    .about-copy h2{font-size:42px;margin-bottom:16px}
+    .about-copy p{color:var(--muted);margin:0 0 15px}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+    .feature{padding:15px;background:#fff9f1;border-radius:15px;font-weight:700;font-size:13px}
+    .feature span{display:block;font-size:22px;margin-bottom:5px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .gallery-grid img{width:100%;height:210px;object-fit:cover;border-radius:16px}
+    .contact{background:var(--ink);color:white}
+    .contact .section-head p{color:#c5bdb3}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .contact-card{border:1px solid #ffffff22;border-radius:22px;padding:26px;background:#ffffff08}
+    .contact-card h3{font-size:24px;margin-bottom:14px}
+    .contact-card p{color:#c5bdb3;margin:9px 0}
+    .contact-card .btn{margin-top:16px}
+    .map-frame{border:0;width:100%;height:300px;border-radius:18px;background:#ddd}
+    footer{background:#171512;color:#b9b0a6;padding:24px 0;font-size:13px}
+    .footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .mobile-menu{display:none}
+    @media(max-width:850px){.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-image,.hero-image img{min-height:340px}.menu-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{grid-template-columns:repeat(2,1fr)}nav{gap:14px}.about-img{height:320px}}
+    @media(max-width:560px){.nav{height:auto;padding:16px 0;align-items:flex-start}.logo{font-size:20px}nav{display:none}.nav .btn{padding:10px 15px;font-size:12px}.hero{padding:35px 0}.hero-grid{gap:26px}.hero p{font-size:15px}section{padding:55px 0}.menu-grid{grid-template-columns:1fr}.menu-card img{height:230px}.gallery-grid img{height:160px}.features{grid-template-columns:1fr}.about-copy h2{font-size:34px}.contact-card{padding:20px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">THE CAFE FIT OUT<small>Food · Coffee · Good Vibes</small></a>
+    <nav aria-label="Main navigation"><a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></nav>
+    <a class="btn" href="#menu">Explore Menu</a>
+  </div>
+</header>
+<main>
+  <section class="hero" id="home"><div class="container hero-grid">
+    <div><div class="eyebrow">A little place to feel good</div><h1>Good food.<br><span>Better moments.</span></h1><p>Come for your favourites, stay for the vibes. Discover comforting bites, Asian-inspired flavours and a cozy café experience made for sharing.</p><div class="hero-actions"><a class="btn" href="#menu">Explore our menu</a><a class="btn dark" href="#contact">Find us</a></div></div>
+    <div class="hero-image"><img src="https://images.unsplash.com/photo-155933Showcase?auto=format&fit=crop&w=1200&q=85" onerror="this.src='https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=85'" alt="Cafe food spread"><div class="image-note">Made for food lovers<span>Fresh flavours · Cozy atmosphere</span></div></div>
+  </div></section>
+  <div class="strip">COFFEE & CONVERSATIONS &nbsp; · &nbsp; ASIAN FAVOURITES &nbsp; · &nbsp; GOOD TIMES</div>
+  <section id="menu"><div class="container"><div class="section-head"><div class="eyebrow">Something delicious</div><h2>Our Demo Menu</h2><p>Sample menu items and prices for this website preview. Please confirm the actual menu with the café.</p></div>
+    <div class="menu-tabs"><button class="tab active" data-filter="all">All</button><button class="tab" data-filter="starters">Starters</button><button class="tab" data-filter="asian">Asian</button><button class="tab" data-filter="mains">Mains</button><button class="tab" data-filter="drinks">Drinks</button></div>
+    <div class="menu-grid" id="menuGrid">
+      <article class="menu-card" data-category="starters"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Steamed dumplings"><div class="menu-info"><h3>Steamed Momos</h3><p>Soft dumplings served with a spicy dipping sauce.</p><div class="price-row"><span class="price">₹149</span><span class="tag">Popular</span></div></div></article>
+      <article class="menu-card" data-category="asian"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80" alt="Sushi rolls"><div class="menu-info"><h3>Sushi Rolls</h3><p>A colourful bite inspired by classic Japanese flavours.</p><div class="price-row"><span class="price">₹249</span><span class="tag">Chef pick</span></div></div></article>
+      <article class="menu-card" data-category="starters"><img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80" alt="Crispy spring rolls"><div class="menu-info"><h3>Spring Rolls</h3><p>Crispy rolls with a delicious savoury filling.</p><div class="price-row"><span class="price">₹169</span><span class="tag">Crispy</span></div></div></article>
+      <article class="menu-card" data-category="mains"><img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80" alt="Noodles"><div class="menu-info"><h3>Asian Noodles</h3><p>Wok-tossed noodles with fresh veggies and flavour.</p><div class="price-row"><span class="price">₹229</span><span class="tag">Comfort food</span></div></div></article>
+      <article class="menu-card" data-category="mains"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="Burger"><div class="menu-info"><h3>Classic Burger</h3><p>A satisfying burger stacked with fresh toppings.</p><div class="price-row"><span class="price">₹199</span><span class="tag">Favourite</span></div></div></article>
+      <article class="menu-card" data-category="drinks"><img src="https://images.unsplash.com/photo-1461023050526-2b4e2c2a6b?auto=format&fit=crop&w=800&q=80" alt="Iced coffee"><div class="menu-info"><h3>Iced Coffee</h3><p>Chilled coffee for a refreshing café break.</p><div class="price-row"><span class="price">₹129</span><span class="tag">Refreshing</span></div></div></article>
+    </div>
+  </div></section>
+  <section class="about" id="about"><div class="container about-grid"><div class="about-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Cozy restaurant interior"></div><div class="about-copy"><div class="eyebrow">Our story</div><h2>Your neighbourhood spot for good food</h2><p>Whether you're catching up with friends, enjoying a date, or simply craving something tasty, we want every visit to feel special.</p><p>This demo showcases how a café website can introduce its atmosphere, menu and location in one simple place.</p><div class="features"><div class="feature"><span>🍽️</span>Delicious bites</div><div class="feature"><span>☕</span>Café moments</div><div class="feature"><span>🫶</span>Good company</div></div></div></div></section>
+  <section id="gallery"><div class="container"><div class="section-head"><div class="eyebrow">A taste of the vibe</div><h2>Food & Moments</h2><p>Photo gallery preview. Replace these images with the café's own photos for the final website.</p></div><div class="gallery-grid"><img src="https://images.unsplash.com/photo-1555399333-3b7b9d7e2b?auto=format&fit=crop&w=800&q=80" alt="Cafe table" onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80'"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Dumplings"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=80" alt="Sushi platter"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800&q=80" alt="Burger and fries"></div></div></section>
+  <section class="contact" id="contact"><div class="container"><div class="section-head"><div class="eyebrow">Come say hello</div><h2>Find your way to us</h2><p>Visit, explore the menu and enjoy a café moment.</p></div><div class="contact-grid"><div class="contact-card"><h3>Contact & Location</h3><p>📍 The Cafe Fit Out — Virar, Maharashtra (confirm exact address)</p><p>🕒 Opening hours: Please confirm with the café</p><p>📞 Phone: Add café contact number</p><a class="btn" target="_blank" rel="noopener" href="https://maps.app.goo.gl/4qY6RhyyC3mXUZpVA">Open Google Maps</a><p style="font-size:12px;margin-top:16px">Contact details shown here are placeholders for the demo.</p></div><div class="contact-card"><iframe class="map-frame" title="Map location" loading="lazy" src="https://maps.google.com/maps?q=Virar%20West%20Maharashtra&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe></div></div></div></section>
+</main>
+<footer><div class="container footer-row"><span>© <span id="year"></span> The Cafe Fit Out — Demo Website</span><span>Designed as a sample website concept</span></div></footer>
+<script>
+  const tabs=document.querySelectorAll('.tab');const cards=document.querySelectorAll('.menu-card');
+  tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');const filter=tab.dataset.filter;cards.forEach(card=>card.style.display=(filter==='all'||card.dataset.category===filter)?'':'none')}));
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
